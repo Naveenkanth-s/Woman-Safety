@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Successful</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+            flex-direction: column;
+            text-align: center;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 500px;
+        }
+        h2 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        p {
+            font-size: 16px;
+            color: #555;
+            margin-bottom: 20px;
+        }
+        .image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        img {
+            max-width: 100%;
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+        img:hover {
+            transform: scale(1.05);
+        }
+        .btn-container {
+            margin-top: 20px;
+        }
+        .btn {
+            background: #ff5733;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #e04e2a;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>🎉 Registration Successful!</h2>
+        <p>Click on the image to proceed to login.</p>
+
+        <div class="image-container">
+            <img src="success_image.jpeg.jpg" alt="Success" onclick="redirectToLogin()">
+        </div>
+
+        <div class="btn-container">
+            <a href="login_final.html" class="btn">Go to Login</a>
+        </div>
+    </div>
+
+    <script>
+        function redirectToLogin() {
+            window.location.href = "login_final.html"; // Redirect to login page
+        }
+    </script>
+
+</body>
+</html>

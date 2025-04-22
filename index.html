@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StrongHer - Women's Safety</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+            overflow: hidden;
+        }
+        .logo-container {
+            width: 90vw;
+            max-width: 800px;
+            cursor: pointer;
+        }
+        img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        @media (max-width: 600px) {
+            .logo-container {
+                width: 95vw;
+                max-width: 95vw;
+            }
+            img {
+                border-radius: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="logo-container" onclick="openNextPage()">
+        <img src="logo_final.png" alt="StrongHer Logo">
+    </div>
+    <script>
+        function openNextPage() {
+            window.location.href = "login_final.html";
+        }
+    </script>
+</body>
+</html>

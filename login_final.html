@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - StrongHer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+            flex-direction: column;
+        }
+        .login-container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+        h2 {
+            margin-bottom: 25px;
+            color: #333;
+            font-size: 24px;
+        }
+        input {
+            width: 100%;
+            padding: 12px;
+            margin: 12px 0;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+        .login-btn {
+            width: 100%;
+            background: #ff5733;
+            color: white;
+            padding: 12px;
+            border: none;
+            border-radius: 6px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background 0.3s;
+        }
+        .login-btn:hover {
+            background: #e04e2a;
+        }
+        .footer {
+            margin-top: 25px;
+            font-size: 15px;
+            color: #555;
+        }
+        .footer a {
+            color: #ff5733;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .login-container {
+                max-width: 90vw;
+                padding: 25px;
+            }
+            h2 {
+                font-size: 22px;
+            }
+            input {
+                font-size: 14px;
+                padding: 10px;
+            }
+            .login-btn {
+                font-size: 16px;
+                padding: 10px;
+            }
+            .footer {
+                font-size: 14px;
+            }
+        }
+    </style>
+    
+    <script>
+        function validateLogin(event) {
+            event.preventDefault(); // Prevent form submission
+        
+            var email = document.getElementById("email").value;
+            var password = document.getElementById("password").value;
+            
+            // List of valid email-password pairs
+            var validCredentials = {
+                "naveenkanth148@gmail.com": "Naveen@123",
+                "kit26.ecea33@gmail.com": "Naveen@2005"
+            };
+
+            if (validCredentials[email] && validCredentials[email] === password) {
+                window.location.assign("function.html"); // Redirect if login is successful
+            } else {
+                alert("Invalid email or password. Please try again.");
+            }
+        }
+    </script>
+
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Login to StrongHer</h2>
+        <form onsubmit="validateLogin(event)">
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+    </div>
+
+    <div class="footer">
+        <span>New here? </span><a href="reg_final.html">Empower Yourself – Sign Up</a>
+    </div>
+
+</body>
+</html>

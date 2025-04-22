@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Function Page</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+            position: relative;
+        }
+
+        /* Popup window */
+        .popup {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            font-size: 18px;
+            color: #333;
+            display: none;
+            z-index: 1000;
+        }
+
+        /* Three-dot menu */
+        .menu-icon {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .menu-icon div {
+            width: 8px;
+            height: 8px;
+            background-color: #333;
+            border-radius: 50%;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: -250px;
+            width: 250px;
+            height: 100%;
+            background-color: white;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            transition: 0.3s;
+            z-index: 999;
+        }
+        .sidebar h3 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 22px;
+            color: #ff5733;
+        }
+        .sidebar p {
+            font-size: 16px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .close-btn {
+            position: absolute;
+            top: 10px;
+            right: 15px;
+            font-size: 20px;
+            cursor: pointer;
+            color: #ff5733;
+        }
+
+        /* Voice animation */
+        .voice-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+            height: 50px;
+        }
+        .bar {
+            width: 8px;
+            height: 30px;
+            margin: 0 4px;
+            background-color: #ff5733;
+            border-radius: 4px;
+            animation: voice-animation 1.2s infinite ease-in-out alternate;
+        }
+        .bar:nth-child(1) { animation-delay: 0s; }
+        .bar:nth-child(2) { animation-delay: 0.2s; }
+        .bar:nth-child(3) { animation-delay: 0.4s; }
+        .bar:nth-child(4) { animation-delay: 0.6s; }
+        .bar:nth-child(5) { animation-delay: 0.8s; }
+        @keyframes voice-animation {
+            0% { height: 10px; }
+            100% { height: 35px; }
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .h2 {
+            font-size: 28px;
+            color: #333;
+        }
+        .mapbox {
+            width: 85%;
+            height: 85vh;
+            background: 
+            rgb(251, 249, 249);
+            padding: 10px;
+            border-radius: 12px;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Popup Window -->
+    <div class="popup" id="popup">
+        The device is located successfully
+    </div>
+
+    <!-- Three-dot Menu -->
+    <div class="menu-icon" onclick="toggleSidebar()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <span class="close-btn" onclick="toggleSidebar()">&times;</span>
+        <h3>Profile</h3>
+        <p><strong>User id:</strong>STH0108</p>
+        <p><strong>Name:</strong> Naveen</p>
+        <p><strong>Email:</strong> naveenkanth148@gmail.com</p>
+        <p><strong>Phone:</strong> +91 6382937171</p>
+        <p><strong>Location:</strong> Sulur,Tamil Nadu, India</p>
+        <p><strong>Connect</strong> verify app connected with device</p>
+    </div>
+
+    <!-- Voice Speaking Animation -->
+    <div class="voice-container">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+    </div>
+
+
+
+    <section class="mapbox">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.073934895971!2d77.05607037459808!3d11.001364054108228!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ba857f77fffffff%3A0x99c4295125f29e2f!2sKIT-Kalaignar%20Karunanidhi%20Institute%20of%20Technology!5e0!3m2!1sen!2sin!4v1708400000000!5m2!1sen!2sin"
+            loading="lazy">
+        </iframe>
+    </section>
+
+    <script>
+        function toggleSidebar() {
+            var sidebar = document.getElementById("sidebar");
+            if (sidebar.style.left === "-250px") {
+                sidebar.style.left = "0";
+            } else {
+                sidebar.style.left = "-250px";
+            }
+        }
+
+        // Show popup on page load and hide after 3 seconds
+        window.onload = function() {
+            var popup = document.getElementById("popup");
+            popup.style.display = "block";
+            setTimeout(function() {
+                popup.style.display = "none";
+            }, 3000);
+        };
+    </script>
+
+</body>
+</html>
